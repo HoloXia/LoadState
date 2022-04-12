@@ -93,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                         is State.Success -> {
                             if (state.data.isNullOrEmpty()) {
                                 val random = (0..2).random()
+                                //显示空页面
                                 loadService.showEmpty(emptyTips[random], emptyIcons[random])
                             } else {
                                 loadService.hide()
@@ -100,6 +101,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                         is State.Error -> {
+                            //显示错误页面
                             loadService.showFailed(state.err.message)
                         }
                         else -> {}

@@ -37,19 +37,20 @@ fun loadServiceInit(view: View, shimmer: Boolean = true, callback: () -> Unit): 
  * @param callback Function0<Unit> 重试方法
  * @return LoadService
  */
-fun loadServiceInit(view: View, @LayoutRes loadLayoutId: Int, shimmer: Boolean = true, callback: () -> Unit): LoadService {
-    val loadService = LoadState.register(view) {
+fun loadServiceInit(view: View, @LayoutRes loadLayoutId: Int, shimmer: Boolean = true, retryAction: () -> Unit): LoadService {
+    val loadService = LoadState.register(view) {//View注册加载库
         showLoading(shimmer)
-        callback.invoke()
-    }.config {
+        retryAction.invoke()
+    }.config {//配置加载页面
         loading(loadLayoutId)
         failed(R.layout.layout_loadsir_failed, R.id.btn_retry)
         empty(R.layout.layout_loadsir_empty)
-        configColorBuilder {
+        configColorBuilder {//Shimmer-android相关配置
             setBaseColor(appContext.getColor(R.color.colorPrimaryVariant))
             setHighlightColor(appContext.getColor(R.color.white))
         }
     }
+    //默认进入页面直接显示加载状态
     loadService.showLoading(shimmer)
     return loadService
 }
@@ -74,18 +75,19 @@ fun loadServiceInit(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>
  * @return LoadService
  */
 fun loadServiceInit(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>, @LayoutRes loadLayoutId: Int, callback: () -> Unit): LoadService {
-    val loadService = LoadState.register(recyclerView, adapter) {
+    val loadService = LoadState.register(recyclerView, adapter) {//RecyclerView注册加载库，需传入对应的Adapter
         showLoading()
         callback.invoke()
-    }.config {
+    }.config {//配置加载页面
         loading(loadLayoutId)
         failed(R.layout.layout_loadsir_failed, R.id.btn_retry)
         empty(R.layout.layout_loadsir_empty)
-        configColorBuilder {
+        configColorBuilder {//Shimmer-android相关配置
             setBaseColor(appContext.getColor(R.color.bgShimmer))
             setHighlightColor(appContext.getColor(R.color.white))
         }
     }
+    //默认进入页面直接显示加载状态
     loadService.showLoading()
     return loadService
 }
@@ -98,6 +100,7 @@ fun loadServiceInit(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>
  */
 fun LoadService.showEmpty(emptyTip: String? = null, @DrawableRes icon: Int? = null) {
     this.showEmpty().apply {
+        //showEmpty()会返回空布局View，获取相关元素设置内容即可
         emptyTip?.let {
             findViewById<TextView>(R.id.tv_empty).text = it
         }
@@ -113,6 +116,7 @@ fun LoadService.showEmpty(emptyTip: String? = null, @DrawableRes icon: Int? = nu
  */
 fun LoadService.showFailed(message: String? = null) {
     this.showFailed().apply {
+        //showFailed()会返回空布局View，获取相关元素设置内容即可
         message?.let {
             this.findViewById<TextView>(R.id.tv_failed).text = message
         }
