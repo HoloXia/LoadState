@@ -39,14 +39,14 @@ fun loadServiceInit(view: View, shimmer: Boolean = true, callback: () -> Unit): 
  */
 fun loadServiceInit(view: View, @LayoutRes loadLayoutId: Int, shimmer: Boolean = true, callback: () -> Unit): LoadService {
     val loadService = LoadState.register(view) {
-        showLoading()
+        showLoading(shimmer)
         callback.invoke()
     }.config {
         loading(loadLayoutId)
         failed(R.layout.layout_loadsir_failed, R.id.btn_retry)
         empty(R.layout.layout_loadsir_empty)
         configColorBuilder {
-            setBaseColor(appContext.getColor(R.color.bgShimmer))
+            setBaseColor(appContext.getColor(R.color.colorPrimaryVariant))
             setHighlightColor(appContext.getColor(R.color.white))
         }
     }
