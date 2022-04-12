@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_shimmer"
+        android:title="shimmer"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_lottie"
+        android:title="lottie"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_custom"
+        android:title="custom"
+        app:showAsAction="never" />
+</menu>

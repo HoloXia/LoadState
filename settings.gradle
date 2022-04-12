@@ -1,0 +1,3 @@
+rootProject.name = "LoadState"
+include ':app'
+include ':loadstate'

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="request_failed">
+        <item>哦豁，迷路了</item>
+        <item>数据请求失败，请稍候再试…</item>
+        <item>ಥ_ಥ，我出错了~</item>
+    </string-array>
+</resources>

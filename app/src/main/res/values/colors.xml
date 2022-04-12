@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimaryVariant">#FF3700B3</color>
+    <color name="colorPrimaryLight">#FFBB86FC</color>
+    <color name="colorAccent">#FF018786</color>
+
+    <color name="bgPage">#F3F3F3</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transParent">#00000000</color>
+    <color name="textPrimary">#272727</color>
+    <color name="textSecond">#5E5968</color>
+    <color name="textTip">#999999</color>
+</resources>
