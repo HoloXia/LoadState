@@ -36,19 +36,19 @@
 
 ```groovy
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 
 **Step 2.** Add the dependency ![](https://jitpack.io/v/HoloXia/LoadState.svg)
 
 ```groovy
 dependencies {
-	        implementation 'com.github.HoloXia:LoadState:1.0'
-	}
+	implementation 'com.github.HoloXia:LoadState:1.0'
+}
 ```
 
 ### 使用
