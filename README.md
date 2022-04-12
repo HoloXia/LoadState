@@ -15,6 +15,8 @@
 
 ![demo](https://s3.bmp.ovh/imgs/2022/04/12/6f034f2090267cc0.png)
 
+密码`9527`
+
 ## 使用演示
 
 | RecyclerView Shimmer                                         | Page Details Shimmer                                         |
