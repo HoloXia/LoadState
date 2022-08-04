@@ -24,7 +24,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_retry"
-        style="@style/Button"
         android:layout_width="130dp"
         android:layout_height="38dp"
         android:layout_marginTop="15dp"
